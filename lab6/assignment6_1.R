@@ -63,7 +63,8 @@ KmeansFunc <- function(data,K,distFunc) {
 print(summary(iris))
 plot(iris$Petal.Length, iris$Petal.Width, col=iris$Species, 
      main="Visualising IRIS data")
-
+print("Each Species")
+print(table(iris$Species))
 iris$Species<-NULL
 print(head(iris))
 scaled_data<- as.matrix(scale(iris))
@@ -86,6 +87,8 @@ print(head(new_data1))
 
 plot(new_data1$Petal.Length, new_data1$Petal.Width, col=new_data1$Cluster,
      main="After Using K-means: euclidean")
+print("EACH CLUSTER (euclidean)")
+print(table(new_data1$Cluster))
 
 clusters<-KmeansFunc(data, 3, "manhattan")
 new_data2<-iris
@@ -94,7 +97,8 @@ print(head(new_data2))
 
 plot(new_data2$Petal.Length, new_data2$Petal.Width, col=new_data2$Cluster,
      main="After Using K-means: manhattan")
-
+print("EACH CLUSTER (manhattan)")
+print(table(new_data2$Cluster))
 
 #Second dataset
 wine <- read.csv(url("https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data"),
@@ -107,7 +111,8 @@ wine <- read.csv(url("https://archive.ics.uci.edu/ml/machine-learning-databases/
 print(summary(wine))
 plot(wine$Alcohol, wine$Ash, col=wine$Type,
      main="Visualising WINE data")
-
+print("Each type:")
+print(table(wine$Type))
 
 wine$Type<-NULL
 print(head(wine))
@@ -131,6 +136,8 @@ print(head(new_data1))
 
 plot(new_data1$Alcohol, new_data1$Ash, col=new_data1$Cluster,
      main="After Using K-means: euclidean")
+print("EACH CLUSTER (euclidean)")
+print(table(new_data1$Cluster))
 
 clusters<-KmeansFunc(data, 3, "manhattan")
 new_data2<-wine
@@ -139,3 +146,5 @@ print(head(new_data2))
 
 plot(new_data2$Alcohol, new_data2$Ash, col=new_data2$Cluster,
      main="After Using K-means: manhattan")
+print("EACH CLUSTER (manhattan)")
+print(table(new_data2$Cluster))
