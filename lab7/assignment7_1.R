@@ -11,7 +11,7 @@ data(Adult)
 rules <- apriori(Adult)
 
 # (c) Displays the first 10 strong association rules.
-rules<-sort(rules, decreasing = TRUE, by = "support")
+rules<-sort(rules, decreasing = TRUE, by = "confidence")
 inspect(rules[1:10])
 
 # (d) Plot the 20 items with highest item frequency.
